@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<nav>
+
+    <h2>Mini Instagram</h2>
+
+    <div>
+        Welcome, {{ username }}
+
+        <a href="/logout">
+            Logout
+        </a>
+    </div>
+
+</nav>
+
+
+<div class="container">
+
+    <h2>Create Post</h2>
+
+    <form action="/post" method="POST">
+
+        <textarea
+            name="caption"
+            placeholder="What's happening?"
+            required
+        ></textarea>
+
+        <button type="submit">
+            Post
+        </button>
+
+    </form>
+
+
+    <h2>Posts</h2>
+
+    {% for post in posts %}
+
+    <div class="post">
+
+        <h3>@{{ post.username }}</h3>
+
+        <p>{{ post.caption }}</p>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+</body>
+
+</html>
